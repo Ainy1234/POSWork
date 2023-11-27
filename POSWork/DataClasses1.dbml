@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="POS" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=DESKTOP-Q9O45E6\SQLEXPRESS;Initial Catalog=POS;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="POSConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.AccessMenu" Member="AccessMenus">
+    <Type Name="AccessMenu">
+      <Column Name="AccessMenu_Id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MenuName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="UserAccessId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TbCustomer" Member="TbCustomers">
+    <Type Name="TbCustomer">
+      <Column Name="CustomerId" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CustomerName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CustomerFatherName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CustomerPhNo" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="CustomerAddress" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CustomerEmail" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CustomerPassword" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="TbCustomer_TbSaleInvoice" Member="TbSaleInvoices" ThisKey="CustomerId" OtherKey="CustomerId" Type="TbSaleInvoice" />
+      <Association Name="TbCustomer_TbSalesReturn" Member="TbSalesReturns" ThisKey="CustomerId" OtherKey="CustomerId" Type="TbSalesReturn" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TbItem" Member="TbItems">
+    <Type Name="TbItem">
+      <Column Name="ItemId" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ItemName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ItemBarcode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ItemUnitPrice" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="ItemQuantity" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="ItemSalePrice" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Association Name="TbItem_TbPurchaseOrder" Member="TbPurchaseOrders" ThisKey="ItemId" OtherKey="ItemId" Type="TbPurchaseOrder" />
+      <Association Name="TbItem_TbPurchaseReturn" Member="TbPurchaseReturns" ThisKey="ItemId" OtherKey="ItemId" Type="TbPurchaseReturn" />
+      <Association Name="TbItem_TbSaleOrder" Member="TbSaleOrders" ThisKey="ItemId" OtherKey="ItemId" Type="TbSaleOrder" />
+      <Association Name="TbItem_TbSalesReturn" Member="TbSalesReturns" ThisKey="ItemId" OtherKey="ItemId" Type="TbSalesReturn" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TbPurchaseInvoice" Member="TbPurchaseInvoices">
+    <Type Name="TbPurchaseInvoice">
+      <Column Name="PurchaseInvoiceId" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="InvoiceDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="InvoiceTotalAmount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="Discount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="Cash" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="ChangeBackAmount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="SupplierId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="AmountAfterDiscount" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Association Name="TbPurchaseInvoice_TbPurchaseOrder" Member="TbPurchaseOrders" ThisKey="PurchaseInvoiceId" OtherKey="PurchaseInvoiceId" Type="TbPurchaseOrder" />
+      <Association Name="TbSupplier_TbPurchaseInvoice" Member="TbSupplier" ThisKey="SupplierId" OtherKey="SupplierId" Type="TbSupplier" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TbPurchaseOrder" Member="TbPurchaseOrders">
+    <Type Name="TbPurchaseOrder">
+      <Column Name="PurchaseOrderId" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="purchaseQuantity" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="ItemId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="UnitPrice" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="PurchaseInvoiceId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Association Name="TbItem_TbPurchaseOrder" Member="TbItem" ThisKey="ItemId" OtherKey="ItemId" Type="TbItem" IsForeignKey="true" />
+      <Association Name="TbPurchaseInvoice_TbPurchaseOrder" Member="TbPurchaseInvoice" ThisKey="PurchaseInvoiceId" OtherKey="PurchaseInvoiceId" Type="TbPurchaseInvoice" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TbPurchaseReturn" Member="TbPurchaseReturns">
+    <Type Name="TbPurchaseReturn">
+      <Column Name="PurchaseReturnId" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ReturnQuantity" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ReturnPrice" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="SupplierId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="ReturnDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="ItemId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Association Name="TbItem_TbPurchaseReturn" Member="TbItem" ThisKey="ItemId" OtherKey="ItemId" Type="TbItem" IsForeignKey="true" />
+      <Association Name="TbSupplier_TbPurchaseReturn" Member="TbSupplier" ThisKey="SupplierId" OtherKey="SupplierId" Type="TbSupplier" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TbRole" Member="TbRoles">
+    <Type Name="TbRole">
+      <Column Name="RoleId" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="RoleName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="TbRole_TbUser" Member="TbUsers" ThisKey="RoleId" OtherKey="RoleId" Type="TbUser" />
+      <Association Name="TbRole_TbUserAccess" Member="TbUserAccesses" ThisKey="RoleId" OtherKey="RoleId" Type="TbUserAccess" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TbSaleInvoice" Member="TbSaleInvoices">
+    <Type Name="TbSaleInvoice">
+      <Column Name="InvoiceId" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="InvoiceDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="InvoiceTotalAmount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="Discount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="Cash" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="ChangeBackAmount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="CustomerId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="AmountAfterDiscount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Association Name="TbSaleInvoice_TbSaleOrder" Member="TbSaleOrders" ThisKey="InvoiceId" OtherKey="InvoiceId" Type="TbSaleOrder" />
+      <Association Name="TbCustomer_TbSaleInvoice" Member="TbCustomer" ThisKey="CustomerId" OtherKey="CustomerId" Type="TbCustomer" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TbSaleOrder" Member="TbSaleOrders">
+    <Type Name="TbSaleOrder">
+      <Column Name="OrderId" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Quantity" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ItemId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="UnitPrice" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="InvoiceId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Association Name="TbItem_TbSaleOrder" Member="TbItem" ThisKey="ItemId" OtherKey="ItemId" Type="TbItem" IsForeignKey="true" />
+      <Association Name="TbSaleInvoice_TbSaleOrder" Member="TbSaleInvoice" ThisKey="InvoiceId" OtherKey="InvoiceId" Type="TbSaleInvoice" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TbSalesReturn" Member="TbSalesReturns">
+    <Type Name="TbSalesReturn">
+      <Column Name="SalesReturnId" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ReturnQuantity" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ReturnPrice" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="CustomerId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="ReturnDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="ItemId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Association Name="TbCustomer_TbSalesReturn" Member="TbCustomer" ThisKey="CustomerId" OtherKey="CustomerId" Type="TbCustomer" IsForeignKey="true" />
+      <Association Name="TbItem_TbSalesReturn" Member="TbItem" ThisKey="ItemId" OtherKey="ItemId" Type="TbItem" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TbSupplier" Member="TbSuppliers">
+    <Type Name="TbSupplier">
+      <Column Name="SupplierId" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SupplierRegistrationNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SupplierName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SupplierContact" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="SupplierEmail" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SupplierCNIC" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Association Name="TbSupplier_TbPurchaseInvoice" Member="TbPurchaseInvoices" ThisKey="SupplierId" OtherKey="SupplierId" Type="TbPurchaseInvoice" />
+      <Association Name="TbSupplier_TbPurchaseReturn" Member="TbPurchaseReturns" ThisKey="SupplierId" OtherKey="SupplierId" Type="TbPurchaseReturn" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TbUser" Member="TbUsers">
+    <Type Name="TbUser">
+      <Column Name="UserId" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserFullName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="UserFatherName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="UserCNIC" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="UserContact" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="UserDOB" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="UserDOAppointment" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="UserAddress" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="UserPassword" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="UserName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="RoleId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="UserImage" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Association Name="TbRole_TbUser" Member="TbRole" ThisKey="RoleId" OtherKey="RoleId" Type="TbRole" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TbUserAccess" Member="TbUserAccesses">
+    <Type Name="TbUserAccess">
+      <Column Name="UserAccessId" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="RoleId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="PageName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="MenuName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="TbRole_TbUserAccess" Member="TbRole" ThisKey="RoleId" OtherKey="RoleId" Type="TbRole" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>
