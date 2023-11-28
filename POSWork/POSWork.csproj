@@ -1802,6 +1802,7 @@
     <Content Include="Admin\ListSaleInvoice.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Logout.aspx" />
+    <Content Include="Readme.txt" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="DataClasses1.dbml">
