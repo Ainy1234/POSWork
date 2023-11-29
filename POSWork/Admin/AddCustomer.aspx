@@ -6,7 +6,7 @@
             <div class="col-md-12">
                <!-- BEGIN PAGE TITLE & BREADCRUMB-->
                <h3 class="page-title">
-                  Add new Customer 
+                  Add newd Customer 
                </h3>
                <ul class="page-breadcrumb breadcrumb">
                   <li class="btn-group">
