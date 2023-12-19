@@ -69,10 +69,12 @@
                <i class="icon-warning-sign"></i>
                <span class="badge">6</span>
                </a>
+
                <ul class="dropdown-menu extended notification">
                   <li>
                      <p>You have 14 new notifications</p>
                   </li>
+                   
                   <li>
                      <ul class="dropdown-menu-list scroller" style="height: 250px;">
                         <li>  
@@ -365,7 +367,8 @@
             </li>
             <li>
                <!-- BEGIN RESPONSIVE QUICK SEARCH FORM -->
-               <form class="sidebar-search" action="extra_search.html" method="POST">
+               <form class="sidebar-search" action="extra_search.html" method="POST" >
+                   <%--<asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Logout" />--%>
                   <div class="form-container">
                      <div class="input-box">
                         <a href="javascript:;" class="remove"></a>
@@ -483,11 +486,11 @@
                <span class="arrow "></span>
                </a>
                <ul class="sub-menu">
-                  <li >
+                 <li id="SMSalesReport" runat="server" visible="false">
                      <a href="SalesReport.aspx" visible="false">
                      Sales Report</a>
                   </li>
-                  <li >
+                   <li id="SMPurchaseReport" runat="server" visible="false">
                      <a href="PurchaseReport.aspx" visible="false">
                      Purchase Report</a>
                   </li>
@@ -500,9 +503,23 @@
                <span class="arrow "></span>
                </a>
                <ul class="sub-menu">
-                  <li >
+                  <li id="SMAssignMenu" runat="server" visible="false">
                      <a href="AssignMenu.aspx" visible="false">
                     Select Menu</a>
+                  </li>
+                 
+               </ul>
+            </li>
+              <li  id="divExpenseMenu" runat="server" visible="false">
+                     <a href="javascript:;">
+               <i class="icon-cogs"></i> 
+               <span class="title">Expenses</span>
+               <span class="arrow "></span>
+               </a>
+               <ul class="sub-menu">
+                  <li id="SMAddExpenses" runat="server" visible="false">
+                     <a href="AddExpenses.aspx" visible="false">
+                    Add Expenses</a>
                   </li>
                  
                </ul>

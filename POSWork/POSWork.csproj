@@ -78,6 +78,7 @@
   <ItemGroup>
     <Content Include="Admin\AddCustomer.aspx" />
     <Content Include="Admin\AddEmployee.aspx" />
+    <Content Include="Admin\AddExpenses.aspx" />
     <Content Include="Admin\AddItem.aspx" />
     <Content Include="Admin\AddRole.aspx" />
     <Content Include="Admin\AddSupplier.aspx" />
@@ -89,6 +90,7 @@
     <Content Include="Admin\EditRole.aspx" />
     <Content Include="Admin\ListCustomer.aspx" />
     <Content Include="Admin\ListEmployees.aspx" />
+    <Content Include="Admin\ListExpenses.aspx" />
     <Content Include="Admin\ListItem.aspx" />
     <Content Include="Admin\ListPurchase.aspx" />
     <Content Include="Admin\ListPurchaseInvoice.aspx" />
@@ -1859,6 +1861,13 @@
     <Compile Include="Admin\AddEmployee.aspx.designer.cs">
       <DependentUpon>AddEmployee.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\AddExpenses.aspx.cs">
+      <DependentUpon>AddExpenses.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AddExpenses.aspx.designer.cs">
+      <DependentUpon>AddExpenses.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\AddItem.aspx.cs">
       <DependentUpon>AddItem.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1942,6 +1951,13 @@
     </Compile>
     <Compile Include="Admin\ListEmployees.aspx.designer.cs">
       <DependentUpon>ListEmployees.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ListExpenses.aspx.cs">
+      <DependentUpon>ListExpenses.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ListExpenses.aspx.designer.cs">
+      <DependentUpon>ListExpenses.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\ListItem.aspx.cs">
       <DependentUpon>ListItem.aspx</DependentUpon>

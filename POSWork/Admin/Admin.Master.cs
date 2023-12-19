@@ -1,4 +1,5 @@
-﻿using System;
+﻿using POSWork.Admin;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -16,7 +17,50 @@ namespace POSWork.Admin
 
             var roleid = db.TbUsers.Where(x => x.UserId.ToString() == Request.Cookies["userSettingsR"]["UserID"]).FirstOrDefault().RoleId;
             var existingRecord = db.TbUserAccesses.FirstOrDefault(x => x.RoleId == roleid);
-            //var roleid = db.TbUserAccesses.Where(x=> x.RoleId == check).FirstOrDefault().RoleId;
+            
+            var rolename = db.TbRoles.Where(x=> x.RoleId == roleid).FirstOrDefault().RoleName;
+            if (rolename == ("Admin"))
+            {
+                divEmployees.Visible  = true;
+                SMAddEmployee.Visible= true;
+                SMListEmployee.Visible= true;
+                divDashboard.Visible = true;
+
+                divRoles.Visible = true;
+                SMAddRole.Visible= true;
+
+                SMListRole.Visible= true;
+
+                divSupplier.Visible = true;
+                SMAddSupplier.Visible= true;
+                SMListSupplier.Visible= true;
+
+                divCustomer.Visible = true;
+
+                SMAddCustomer.Visible= true;
+
+                SMListCustomer.Visible= true;
+
+                divItems.Visible = true;
+
+                SMAddItem.Visible= true;
+                SMListItem.Visible= true;
+                divReports.Visible = true;
+
+                SMSalesReport.Visible= true;
+
+                SMPurchaseReport.Visible= true;
+
+                divAssignMenu.Visible = true;
+
+
+                SMAssignMenu.Visible= true;
+
+                divExpenseMenu.Visible = true;
+
+                SMAddExpenses.Visible= true;
+
+            }
             if (existingRecord != null)
             {
                 var pagename = db.TbUserAccesses.Where(x => x.RoleId == roleid)
@@ -127,6 +171,52 @@ namespace POSWork.Admin
                         }
 
                     }
+                    if (page.MenuName ==("Reports"))
+                    {
+                        divReports.Visible = true;
+                        string[] pg = page.PageName.Split(',');
+                        for (int i = 0; i< pg.Count(); i++)
+                        {
+                            if (pg[i]== "SalesReport.aspx")
+                            {
+                                SMSalesReport.Visible= true;
+                            }
+                            if (pg[i]== "PurchaseReport.aspx")
+                            {
+                                SMPurchaseReport.Visible= true;
+                            }
+
+                        }
+
+                    }
+                    if (page.MenuName ==("Assign Menu"))
+                    {
+                        divAssignMenu.Visible = true;
+                        string[] pg = page.PageName.Split(',');
+                        for (int i = 0; i< pg.Count(); i++)
+                        {
+                            if (pg[i]== "AssignMenu.aspx")
+                            {
+                                SMAssignMenu.Visible= true;
+                            }
+                           
+                        }
+
+                    }
+                    if (page.MenuName ==("Assign Menu"))
+                    {
+                        divExpenseMenu.Visible = true;
+                        string[] pg = page.PageName.Split(',');
+                        for (int i = 0; i< pg.Count(); i++)
+                        {
+                            if (pg[i]== "AddExpenses.aspx")
+                            {
+                                SMAddExpenses.Visible= true;
+                            }
+
+                        }
+
+                    }
 
 
                 }
@@ -156,6 +246,11 @@ namespace POSWork.Admin
                 Session["expire"] = "True";
                 Response.Redirect("Logout.aspx");
             }
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Logout.aspx");
         }
     }
 }

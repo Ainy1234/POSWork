@@ -36,6 +36,9 @@ namespace POSWork
     partial void InsertTbCustomer(TbCustomer instance);
     partial void UpdateTbCustomer(TbCustomer instance);
     partial void DeleteTbCustomer(TbCustomer instance);
+    partial void InsertTbExpense(TbExpense instance);
+    partial void UpdateTbExpense(TbExpense instance);
+    partial void DeleteTbExpense(TbExpense instance);
     partial void InsertTbItem(TbItem instance);
     partial void UpdateTbItem(TbItem instance);
     partial void DeleteTbItem(TbItem instance);
@@ -114,6 +117,14 @@ namespace POSWork
 			get
 			{
 				return this.GetTable<TbCustomer>();
+			}
+		}
+		
+		public System.Data.Linq.Table<TbExpense> TbExpenses
+		{
+			get
+			{
+				return this.GetTable<TbExpense>();
 			}
 		}
 		
@@ -575,6 +586,92 @@ namespace POSWork
 		{
 			this.SendPropertyChanging();
 			entity.TbCustomer = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TbExpense")]
+	public partial class TbExpense : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private long _ExpenseID;
+		
+		private string _ExpenseHead;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnExpenseIDChanging(long value);
+    partial void OnExpenseIDChanged();
+    partial void OnExpenseHeadChanging(string value);
+    partial void OnExpenseHeadChanged();
+    #endregion
+		
+		public TbExpense()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ExpenseID", AutoSync=AutoSync.OnInsert, DbType="BigInt NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public long ExpenseID
+		{
+			get
+			{
+				return this._ExpenseID;
+			}
+			set
+			{
+				if ((this._ExpenseID != value))
+				{
+					this.OnExpenseIDChanging(value);
+					this.SendPropertyChanging();
+					this._ExpenseID = value;
+					this.SendPropertyChanged("ExpenseID");
+					this.OnExpenseIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ExpenseHead", DbType="NVarChar(50)")]
+		public string ExpenseHead
+		{
+			get
+			{
+				return this._ExpenseHead;
+			}
+			set
+			{
+				if ((this._ExpenseHead != value))
+				{
+					this.OnExpenseHeadChanging(value);
+					this.SendPropertyChanging();
+					this._ExpenseHead = value;
+					this.SendPropertyChanged("ExpenseHead");
+					this.OnExpenseHeadChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
 		}
 	}
 	

@@ -20,6 +20,12 @@
       <Association Name="TbCustomer_TbSalesReturn" Member="TbSalesReturns" ThisKey="CustomerId" OtherKey="CustomerId" Type="TbSalesReturn" />
     </Type>
   </Table>
+  <Table Name="dbo.TbExpense" Member="TbExpenses">
+    <Type Name="TbExpense">
+      <Column Name="ExpenseID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ExpenseHead" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
   <Table Name="dbo.TbItem" Member="TbItems">
     <Type Name="TbItem">
       <Column Name="ItemId" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />

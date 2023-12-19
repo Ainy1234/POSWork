@@ -177,6 +177,24 @@ namespace POSWork.Admin
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divReports;
 
         /// <summary>
+        /// SMSalesReport control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl SMSalesReport;
+
+        /// <summary>
+        /// SMPurchaseReport control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl SMPurchaseReport;
+
+        /// <summary>
         /// divAssignMenu control.
         /// </summary>
         /// <remarks>
@@ -184,6 +202,33 @@ namespace POSWork.Admin
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divAssignMenu;
+
+        /// <summary>
+        /// SMAssignMenu control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl SMAssignMenu;
+
+        /// <summary>
+        /// divExpenseMenu control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divExpenseMenu;
+
+        /// <summary>
+        /// SMAddExpenses control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl SMAddExpenses;
 
         /// <summary>
         /// MainContent control.
