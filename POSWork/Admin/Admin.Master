@@ -523,6 +523,21 @@
                   </li>
                  
                </ul>
+                   <ul class="sub-menu">
+                  <li id="SMListExpenses" runat="server" visible="false">
+                     <a href="ListExpenses.aspx" visible="false">
+                    List Expenses</a>
+                  </li>
+                 
+               </ul>
+
+                  <ul class="sub-menu">
+                  <li id="SMExpenseReport" runat="server" visible="false">
+                     <a href="ExpenseReport.aspx" visible="false">
+                    Expense Report</a>
+                  </li>
+                 
+               </ul>
             </li>
 
              

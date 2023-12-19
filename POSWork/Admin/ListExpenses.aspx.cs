@@ -27,7 +27,8 @@ namespace POSWork.Admin
                           
 
                           ExpenseID = i.ExpenseID,
-                          ExpenseName =  i.ExpenseHead
+                          ExpenseHead =  i.ExpenseHead,
+                          TotalPrice = i.TotalPrice
 
 
                       });

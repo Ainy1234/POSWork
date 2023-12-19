@@ -59,6 +59,8 @@ namespace POSWork.Admin
                 divExpenseMenu.Visible = true;
 
                 SMAddExpenses.Visible= true;
+                SMListExpenses.Visible= true;
+                SMExpenseReport.Visible= true;
 
             }
             if (existingRecord != null)
@@ -203,7 +205,7 @@ namespace POSWork.Admin
                         }
 
                     }
-                    if (page.MenuName ==("Assign Menu"))
+                    if (page.MenuName ==("Expenses"))
                     {
                         divExpenseMenu.Visible = true;
                         string[] pg = page.PageName.Split(',');
@@ -213,6 +215,15 @@ namespace POSWork.Admin
                             {
                                 SMAddExpenses.Visible= true;
                             }
+                            if (pg[i]== "ListExpenses.aspx")
+                            {
+                                SMListExpenses.Visible= true;
+                            }
+                            if (pg[i]== "ExpenseReport.aspx")
+                            {
+                                SMExpenseReport.Visible= true;
+                            }
+
 
                         }
 
@@ -222,8 +233,8 @@ namespace POSWork.Admin
                 }
             }
 
-            
 
+            
 
 
         }

@@ -133,10 +133,6 @@ namespace POSWork.Admin
                         sb.Append(dt.Compute("sum(Total) ", ""));
                         sb.Append("</td>");
                         sb.Append("</tr>");
-
-                        
-
-                       
                         sb.Append("</tr></table>");
                     sb.Append("</Font>");
 

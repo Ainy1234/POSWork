@@ -599,6 +599,8 @@ namespace POSWork
 		
 		private string _ExpenseHead;
 		
+		private System.Nullable<decimal> _TotalPrice;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -607,6 +609,8 @@ namespace POSWork
     partial void OnExpenseIDChanged();
     partial void OnExpenseHeadChanging(string value);
     partial void OnExpenseHeadChanged();
+    partial void OnTotalPriceChanging(System.Nullable<decimal> value);
+    partial void OnTotalPriceChanged();
     #endregion
 		
 		public TbExpense()
@@ -650,6 +654,26 @@ namespace POSWork
 					this._ExpenseHead = value;
 					this.SendPropertyChanged("ExpenseHead");
 					this.OnExpenseHeadChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TotalPrice", DbType="Decimal(18,2)")]
+		public System.Nullable<decimal> TotalPrice
+		{
+			get
+			{
+				return this._TotalPrice;
+			}
+			set
+			{
+				if ((this._TotalPrice != value))
+				{
+					this.OnTotalPriceChanging(value);
+					this.SendPropertyChanging();
+					this._TotalPrice = value;
+					this.SendPropertyChanged("TotalPrice");
+					this.OnTotalPriceChanged();
 				}
 			}
 		}

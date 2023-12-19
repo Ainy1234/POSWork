@@ -24,6 +24,7 @@
     <Type Name="TbExpense">
       <Column Name="ExpenseID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="ExpenseHead" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TotalPrice" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.TbItem" Member="TbItems">

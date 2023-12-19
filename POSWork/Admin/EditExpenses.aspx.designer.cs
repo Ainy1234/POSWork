@@ -11,7 +11,7 @@ namespace POSWork.Admin
 {
 
 
-    public partial class AddExpenses
+    public partial class EditExpenses
     {
 
         /// <summary>
@@ -69,13 +69,13 @@ namespace POSWork.Admin
         protected global::System.Web.UI.WebControls.Label Label1;
 
         /// <summary>
-        /// ExpenseName control.
+        /// TbExpenseHead control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ExpenseName;
+        protected global::System.Web.UI.WebControls.TextBox TbExpenseHead;
 
         /// <summary>
         /// Label2 control.

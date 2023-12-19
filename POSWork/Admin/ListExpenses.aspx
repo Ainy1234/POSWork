@@ -4,7 +4,7 @@
             <div class="col-md-12">
                <!-- BEGIN PAGE TITLE & BREADCRUMB-->
                <h3 class="page-title">
-                  List of Employees 
+                  List of Expenses 
                </h3>
                <ul class="page-breadcrumb breadcrumb">
                   <li class="btn-group">
@@ -25,10 +25,10 @@
                      <i class="icon-angle-right"></i>
                   </li>
                   <li>
-                     <a href="Employees.aspx">Employees</a>
+                     <a href="Employees.aspx">Expenses</a>
                      <i class="icon-angle-right"></i>
                   </li>
-                  <li><a href="ListEmployees.aspx">List of Employees</a></li>
+                  <li><a href="ListEmployees.aspx">List of Expenses</a></li>
                </ul>
                <!-- END PAGE TITLE & BREADCRUMB-->
             </div>
@@ -38,7 +38,7 @@
                         <form runat="server">
 <div class="portlet box blue">
                   <div class="portlet-title">
-                     <div class="caption"><i class="icon-cogs"></i>List of Employees</div>
+                     <div class="caption"><i class="icon-cogs"></i>List of Expenses</div>
                      <div class="tools">
                         <a href="javascript:;" class="collapse"></a>
                         <a href="#portlet-config" data-toggle="modal" class="config"></a>
@@ -68,9 +68,16 @@
             <asp:TextBox ID="tbroleid" runat="server" Text='<%# Eval("RoleId") %>'></asp:TextBox>
         </EditItemTemplate>--%>
     </asp:TemplateField>
-            <asp:TemplateField HeaderText="ExpenseHead" >
+            <asp:TemplateField HeaderText="Expense Head" >
         <ItemTemplate>
             <asp:Label ID="LbExpenseHead" runat="server" Text='<%# Eval("ExpenseHead") %>'></asp:Label>
+        </ItemTemplate>
+       
+    </asp:TemplateField>
+
+                  <asp:TemplateField HeaderText="Total Price" >
+        <ItemTemplate>
+            <asp:Label ID="LbExpenseTotalPrice" runat="server" Text='<%# Eval("TotalPrice") %>'></asp:Label>
         </ItemTemplate>
        
     </asp:TemplateField>
@@ -78,12 +85,12 @@
 
             <asp:TemplateField HeaderText="Delete" >
         <ItemTemplate>
-            <asp:LinkButton runat="server" ID="deletebtn"    class="btn red" CommandName="Delete_head" CommandArgument='<%#Eval("UserId") %>'>Delete</asp:LinkButton>
+            <asp:LinkButton runat="server" ID="deletebtn"    class="btn red" CommandName="Delete_head" CommandArgument='<%#Eval("ExpenseID") %>'>Delete</asp:LinkButton>
         </ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Edit" >
         <ItemTemplate>
-            <asp:LinkButton runat="server" ID="EditButton"    class="btn green" CommandName="Edit_head" CommandArgument='<%#Eval("UserId") %>'>Edit</asp:LinkButton>
+            <asp:LinkButton runat="server" ID="EditButton"    class="btn green" CommandName="Edit_head" CommandArgument='<%#Eval("ExpenseID") %>'>Edit</asp:LinkButton>
         </ItemTemplate>
         
     </asp:TemplateField>

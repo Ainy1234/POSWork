@@ -15,7 +15,10 @@ namespace POSWork.Admin
         DataClasses1DataContext db = new DataClasses1DataContext();
         protected void Page_Load(object sender, EventArgs e)
         {
-           cookiecheck();
+            if (!IsPostBack)
+            {
+                cookiecheck();
+            }
         }
         protected void cookiecheck()
         {
@@ -47,11 +50,12 @@ namespace POSWork.Admin
                     TbExpense tbExpense = new TbExpense();
 
                     tbExpense.ExpenseHead = ExpenseName.Text;
+                    tbExpense.TotalPrice = Convert.ToDecimal( TbTotalPrice.Text);
 
                     db.TbExpenses.InsertOnSubmit(tbExpense);
                     db.SubmitChanges();
                     ExpenseName.Text= string.Empty;
-                   
+                    TbTotalPrice.Text = string.Empty;
 
                     lbsuccess.Text="data saved successfully";
                     lbsuccess.Visible= true;
@@ -83,7 +87,7 @@ namespace POSWork.Admin
 
         protected void btnCancel_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("AddExpenses.aspx");
         }
     }
 }
