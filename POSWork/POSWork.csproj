@@ -101,6 +101,7 @@
     <Content Include="Admin\ListSales.aspx" />
     <Content Include="Admin\ListSalesReturns.aspx" />
     <Content Include="Admin\ListSupplier.aspx" />
+    <Content Include="Admin\ProfitReport.aspx" />
     <Content Include="Admin\PurchaseInvoice.aspx" />
     <Content Include="Admin\AddPurchaseReturn.aspx" />
     <Content Include="Admin\PurchaseReport.aspx" />
@@ -2037,6 +2038,13 @@
     </Compile>
     <Compile Include="Admin\EditSupplier.aspx.designer.cs">
       <DependentUpon>EditSupplier.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ProfitReport.aspx.cs">
+      <DependentUpon>ProfitReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ProfitReport.aspx.designer.cs">
+      <DependentUpon>ProfitReport.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\PurchaseInvoice.aspx.cs">
       <DependentUpon>PurchaseInvoice.aspx</DependentUpon>
